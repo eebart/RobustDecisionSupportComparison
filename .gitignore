@@ -1,0 +1,6 @@
+
+charting/.ipynb_checkpoints/*
+*.pyc
+*.o
+*.c
+*.so
