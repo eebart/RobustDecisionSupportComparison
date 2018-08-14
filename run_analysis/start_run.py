@@ -31,34 +31,23 @@ code in the models folder.
 """
 
 from modelConfig import models, baseModel
-from methodConfig import MordmParams, MultiParams, MoroParams, methodFunctions
+from methodConfig import methodParams, methodFunctions
 from util.util import objToDict
 
 from ema_workbench import (ema_logging)
 
 activateLogging = True
-runMethod = {
-    'mordm': True,
-    'multi': False,
-    'moro': False
-}
+rootFolder = 'data'
+
 runModel = {
     'dps': True,
-    'plannedadaptive': False,
-    'intertemporal': False
+    'plannedadaptive': True,
+    'intertemporal': True
 }
-
-rootFolder = 'data'
-methodParams = {
-    'mordm': MordmParams(rootFolder, optimize=False,
-                         reevaluate=True, reevaluate_scenarios=True,
-                         robust=True),
-    'multi': MultiParams(rootFolder, optimize=True,
-                         reevaluate=True, reevaluate_scenarios=True,
-                         robust=True),
-    'moro':  MoroParams(rootFolder, optimize=True, optimize_scenarios=True,
-                        reevaluate=True, reevaluate_scenarios=True,
-                        robust=True)
+runMethod = {
+    'mordm': True,
+    'multi': True,
+    'moro': True
 }
 
 if __name__ == '__main__':

@@ -70,6 +70,7 @@ class MultiParams(BaseParams):
 
         # Optimization
         self.numberOptimizationRepetitions = 50
+
         self.references = {
             'dps': [{'b': 0.268340928, 'q': 3.502868198, 'mean': 0.042989126,
                      'delta': 0.942898012, 'stdev': 0.002705703},
@@ -369,6 +370,18 @@ def runScores(model, params, robustData, outputFile):
 
     return result
 
+
+methodParams = {
+    'mordm': MordmParams(rootFolder, optimize=False,
+                         reevaluate=True, reevaluate_scenarios=True,
+                         robust=True),
+    'multi': MultiParams(rootFolder, optimize=True,
+                         reevaluate=True, reevaluate_scenarios=True,
+                         robust=True),
+    'moro':  MoroParams(rootFolder, optimize=True, optimize_scenarios=True,
+                        reevaluate=True, reevaluate_scenarios=True,
+                        robust=True)
+}
 
 methodFunctions = {
     'mordm': {
