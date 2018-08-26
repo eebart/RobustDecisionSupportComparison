@@ -24,23 +24,6 @@ from scipy.stats import describe
 
 from util import *
 
-# Initial colors
-# alternativeColors = {
-#     'dps':['#e2b01a','#e68428','#e24c1a','#e21a7e'],
-#     'plannedadaptive':['#030411','#961458','#4C1B96','#8C1C12'],
-#     'intertemporal':['#00230C','#0869A8','#08309E','#00A877']
-# }
-# fullColors = {
-#     'dps':['#e2b01a','#e68428','#e24c1a','#e21a7e','#E21A1A'],
-#     'plannedadaptive':['#030411','#961458','#4C1B96','#8C1C12','#6D177F'],
-#     'intertemporal':['#00230C','#0869A8','#00A877','#08309E','#008B91',]
-# }
-# primaryColors = {
-#     'dps': '#E21A1A',
-#     'plannedadaptive': '#6D177F',
-#     'intertemporal': '#008891'
-# }
-
 fullColors = {
     'intertemporal': {
         'mordm': ['#2E82FF','#0A6DFF','#013C92','#02285F','#0052CC'],

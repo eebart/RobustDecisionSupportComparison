@@ -370,19 +370,6 @@ def runScores(model, params, robustData, outputFile):
 
     return result
 
-
-methodParams = {
-    'mordm': MordmParams(rootFolder, optimize=False,
-                         reevaluate=True, reevaluate_scenarios=True,
-                         robust=True),
-    'multi': MultiParams(rootFolder, optimize=True,
-                         reevaluate=True, reevaluate_scenarios=True,
-                         robust=True),
-    'moro':  MoroParams(rootFolder, optimize=True, optimize_scenarios=True,
-                        reevaluate=True, reevaluate_scenarios=True,
-                        robust=True)
-}
-
 methodFunctions = {
     'mordm': {
         'steps': ['moea', 'pareto', 'reevaluate', 'robust', 'score'],

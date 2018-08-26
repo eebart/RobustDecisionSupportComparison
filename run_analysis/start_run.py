@@ -31,7 +31,7 @@ code in the models folder.
 """
 
 from modelConfig import models, baseModel
-from methodConfig import methodParams, methodFunctions
+from methodConfig import methodFunctions, MordmParams, MultiParams, MoroParams
 from util.util import objToDict
 
 from ema_workbench import (ema_logging)
@@ -48,6 +48,18 @@ runMethod = {
     'mordm': True,
     'multi': True,
     'moro': True
+}
+
+methodParams = {
+    'mordm': MordmParams(rootFolder, optimize=False,
+                         reevaluate=True, reevaluate_scenarios=True,
+                         robust=True),
+    'multi': MultiParams(rootFolder, optimize=True,
+                         reevaluate=True, reevaluate_scenarios=True,
+                         robust=True),
+    'moro':  MoroParams(rootFolder, optimize=True, optimize_scenarios=True,
+                        reevaluate=True, reevaluate_scenarios=True,
+                        robust=True)
 }
 
 if __name__ == '__main__':

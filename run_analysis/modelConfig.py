@@ -1,6 +1,6 @@
 from ema_workbench import (RealParameter, ScalarOutcome, Constant, Constraint)
 
-from models.builder import *
+from modelData.builder import *
 
 modelParams = type('obj', (object,), {
     'timeHorizon': 100,
