@@ -37,7 +37,7 @@ from util.util import objToDict
 from ema_workbench import (ema_logging)
 
 activateLogging = True
-rootFolder = 'data'
+rootFolder = '../data'
 
 runModel = {
     'dps': True,
@@ -51,7 +51,7 @@ runMethod = {
 }
 
 methodParams = {
-    'mordm': MordmParams(rootFolder, optimize=False,
+    'mordm': MordmParams(rootFolder, optimize=True,
                          reevaluate=True, reevaluate_scenarios=True,
                          robust=True),
     'multi': MultiParams(rootFolder, optimize=True,
