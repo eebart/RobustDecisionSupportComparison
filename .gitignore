@@ -4,3 +4,5 @@ charting/.ipynb_checkpoints/*
 *.o
 *.c
 *.so
+
+scenario_selection/.ipynb_checkpoints/*
