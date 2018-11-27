@@ -1,0 +1,73 @@
+\chapter{Usage and Replication Guide}
+\label{appendix-code}
+
+As this study involves the execution of three methods against three different problem variations, the data gathering and analysis process was quite intensive. This appendix will describe the work required to gather and analyze the necessary data. It will also provide guidance on replicating the results seen in this study and advice for extending the work done here to new methods and problems for comparison. 
+
+All data gathering and analysis code is on GitHub: \href{https://github.com/eebart/RobustDecisionSupportComparison}{eebart/RobustDecisionSupportComparison}. 
+
+\section{Implementation}
+Methods and models used in this study were both implemented using Python to create an extendable library that will support not only the execution of the method and model pairings used in this study, but of newly added methods and models as the analyst sees fit. 
+
+The models themselves were implemented using Cython, a programming language that is built on the Python language and provides a compiler that produces optimized C code, which will run more efficiently than a pure Python model. As each model needs to be executed hundreds of thousands of times, implementing the model in Cython can add significant processing time gains. 
+
+All code needed to execute analysis for each model variation and method pairing is found in the \texttt{run_analysis/} folder on GitHub. Configuration for each model and method are found in the root of that folder. The primary file that will be executed is \texttt{start_run.py}, which contains flags to control which methods and model variations to execute, and connects to the configuration for the models, defined in \texttt{modelConfig.py} and methods, defined in \texttt{methodConfig.py}. Supporting functionality for method execution is found in \texttt{methodFuncs/}. 
+
+Finally, the MOEA developed as a part of this study is found in \texttt{util/NSGAIIHybrid.py}, as well as the algorithm used to perform the Pareto sorting of results found across search repetitions. 
+
+The remaining parts of this appendix will describe the work undertaken as a part of this study to execute each model variation + method pairing, how to replicate these results, what is required if you would like to add new methods or models to your own comparative analysis, and how the visualizations were generated that are seen in this thesis. 
+
+\section{Execution}
+Given the large number of function executions required for each of the 9 method and model variation pairings, a significant amount of computing power was required. The processing capabilities offered with a laptop, even one with 16 GB of RAM and a cutting edge processor, would have been required to run for multiple weeks and 24 hours a day to gather the data required for this study. 
+
+There are also operating system dependencies. As Cython code is compiled down to C code, the models developed must be compiled on an operating system of the same type (Unix or Windows). Furthermore, the parallelization libraries used in EMA Workbench have been known to be problematic when running on a Windows environment. Those issues were confirmed in the process of gathering data for this research. Initial runs were made using a Windows server to obtain additional computing power, but deadlocking and parallelization errors prevented the use of Windows as the data gathering operating system for the majority of the analysis runs. 
+
+The solution for this study was to rent a series of Amazon's AWS servers running Cloud Compute, which are designed to optimize computing power and parallelization. In total, three linux servers were leased for 4 days total, providing 64 virtual CPUs with 488 gigabytes of memory. These servers ran non-stop for those 4 days, generating the majority of the data for all 9 model variation + method pairings. This included steps 2 and 3 of each method structure. Step 4 - scenario discovery - was performed locally on a personal machine. 
+
+During those 4 days, close monitoring was required. Despite the large amount of memory available, memory deadlocks were experienced when running MORO-based MOEA searches. Despite some investigation into the root cause, it is unclear what caused the memory deadlocks for those cases. When a deadlock occurred, the only solution was a complete restart of that particular search repetition. 
+
+After the initial data gathering stage, all additional analysis and visualization development was performed on a high-performing linux-based laptop. No further problems with deadlocking was experienced. 
+
+\section{Replication}
+As a large amount of computing power is required, replicating this study is no small task. However, if there is interest in replication of these results, the process is described below: 
+
+\textbf{Initial Setup: } The first part of any replication is to set up the environment. There are two non-standard python libraries that are required: 
+
+\begin{itemize}
+    \item Platypus: Version 1.0.2 is used in this study. Instructions for installing Platypus can be found \href{http://platypus.readthedocs.io/en/latest/getting-started.html#installing-platypus}{here}. A small change to the Platypus library was required to avoid a divide-by-zero error. In \texttt{platypus/tools.py}, update the following method to include the code in that is checking for a zero vector, v: 
+    
+    \begin{lstlisting}
+    def project(u, v):
+        if is_zero(v):
+            return v
+        return multiply(dot(u, v) / dot(v, v), v)
+    \end{lstlisting}
+    
+    \item EMA Workbench: Version 1.2.1 is used in this study, with no customization required. Documentation for EMA Workbench can be found \href{https://emaworkbench.readthedocs.io/en/latest/}{here}.
+\end{itemize}
+
+Once the proper dependencies are installed, obtain the code used in this study from \href{https://github.com/eebart/RobustDecisionSupportComparison}{GitHub}. In \texttt{run_analysis/} is the code responsible for data gathering. All configuration for the three methods involved in the analysis can be found in \texttt{methodConfig.py}. As it is found on GitHub, it will be configured to run analysis as it is performed in this study.
+
+\textbf{Building Models: } Because the models used in this study are built using Cython, the first step in replication is to compile the models into C code. Compilation must be done on using the same type of operating system that will be used when running the data gathering code (Unix or Windows). Models are found in \texttt{run_analysis/models/}. Building instructions are found in the \href{http://docs.cython.org/en/latest/src/quickstart/build.html#building-a-cython-module-using-distutils}{Cython documentation}. A single command is required, executed from the \texttt{run_analysis/models/} folder. No additional work should be required.
+
+\begin{lstlisting}
+    python setup.py build_ext --inplace
+\end{lstlisting}
+
+\textbf{Executing Analysis: }
+The file \texttt{start_run.py} contains the structure for running data gathering. Included are a series of flags to control which methods and models are executed. As the work in this study used multiple independent server instances, the flags were used to control which pairings ran on which server instances. Also included in \texttt{start_run.py} is the configuration for which folder to save the generated data in, and whether to use EMA Workbench's built-in verbose logging. 
+
+The methods used in this study can be further configured in \texttt{start_run.py} to control which steps will generate new data and which will load results from the file system. In this way, the analyst can control which steps of the model are run at one time, giving more freedom in the data gathering process to run steps on different machines based on computing power needs. For example, the policy alternative determination step easily requires the most significant computing power. Using the createNew flags in \texttt{start_run.py} for each method, that step can be run on more powerful machines, and the remaining steps can be run on more easily accessible and less powerful machines after the data is copied. 
+
+There is one manual step in the analysis, the scenario selection process for multi-scenario MORDM. This work is found in the \texttt{scenario_selection} folder, which includes a usage guide providing instructions on how to determine maximally diverse sets of 4 reference scenarios for each method. If using the same scenario selection method as is found in this study, the complete MORDM analysis must be completed beforehand for each model variation, as scenario discovery results from that method will be required. 
+
+\section{Extending the Project}
+The code in \texttt{run_analysis} is configured in such a way that should allow for the introduction of different models and model variations, and different methods of analysis. 
+
+\textbf{Model Changes: } New model variations can be added to \texttt{run_analysis/models/builder.py}. EMA Workbench provides native support for models of many forms, including Python, Vensim, Excel, and NetLogo. As a note, both the Vensim and Excel connectors must be run from a windows environment. This analysis can be run using models from any of these sources by adding a model implementation method in \texttt{run_analysis/models/builder.py} with the relevant configuration details. If there are common properties across model variations, those can be established in \texttt{run_analysis/modelConfig.py}. This file is also where the library of instantiated models will be created. 
+
+\textbf{Method Changes: } Method-related functionality are found in \texttt{run_analysis/methodFuncs} and is configured in \texttt{run_analysis/methodConfig.py}. That Python file contains method parameterizations and information about the steps and methods required to execute each method. Methods that follow a structure unlike the basic RDM structure used by all methods in this analysis can be configured using an array of methods that describe the steps required. Each successive step in the analysis will accept the return value of the previous step as input. Add new methods of decision support by creating a new method parameter class that contains all of the specific parameterizations for that method, initialize that parameterization class in \texttt{methodParams}, and create a structure describing the steps required to complete an analysis (to be added to the \texttt{methodFuncs} dictionary. Both \texttt{methodParams} and \texttt{methodFuncs} can be found at the bottom of the \texttt{methodConfig.py} file).
+
+The final component required to add new models or methods to an analysis is to update \texttt{start_run.py} to reflect those changes. This file will require only small changes. Simply update the run flags to reflect the new model or method that has been added. These flags control which pairings that will be run when gathering data.
+
+\section{Visualization}
+Also included in the GitHub repository is the code required to generate visualizations used in this thesis. These visualizations were generated using iPython notebooks, which can be found in \texttt{charting/}. That folder also includes the common code used in these notebooks to read in the data generated previously and to manage the color schemes and labeling used in the majority of these figures.  

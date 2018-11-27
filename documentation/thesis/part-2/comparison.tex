@@ -1,0 +1,87 @@
+\chapter{Methods of Comparisons}
+\label{dev-comparisons}
+
+\begin{abstract}
+    This chapter establishes framework for comparing robust decision support methods. This includes several points of comparison, both qualitative and quantitative. Measures will be grouped into categories that indicate the type of information being compared. This includes elements related to the setup and configuration process (\cref{compare-setup}), communication of the strength of results communication (\cref{compare-communication}), and comparisons of the results themselves (\cref{compare-results}).
+\end{abstract}
+
+\newpage
+
+\section{Metric Selection Process}\label{compare-intro}
+The metrics for comparison described in this chapter will provide a comprehensive look at the relative strengths and weaknesses of each problem variation and robust decision support method pairing. The metrics were developed based on a detailed review of existing work that compare various methods of decision support. As discussed in \cref{gap-comaprativework} and \cref{gap-policies}, previous literature has primarily focused on a comparison of two methods of decision support at a time for a single and specific problem variation \citep{Gersonius2016,Hall2012,Kwakkel2016Compare,Matrosov2013a,Matrosov2013b,Roach2015,Roach2016}. That literature has focused on points of comparison specific to the problem and methods under consideration at the time. The goal of this comparison framework is to build a library of comparison metrics that will facilitate a comprehensive comparison of multiple problem variations and multiple methods of decision support. 
+
+\section{Setup Complexity} \label{compare-setup}
+The first set of measures relates to the complexity of setup and use of each method. These are both qualitative measures that are related to each method and are independent of the problem variation under consideration. 
+
+\begin{enumerate}[leftmargin=*,align=left,label=\textbf{Comparison \arabic* :}]
+    \item Complexity of problem setup \newline
+          Based on earlier work comparing methods of decision making, this metric draws attention to the effort required to prepare the problem under consideration for analysis \citep{Kwakkel2016Compare,Roach2015}. This metric considers the following: what elements must be specified before execution and how the model must format uncertainties, decision levers, and outcomes of interest. The end result will be an inventory of the model-specific configuration which focuses on elements that are unique to each method. 
+    \item Complexity of method setup \newline
+          This metric considers any method-specific setup that is required for the decision support method to be executed. Similar to metrics used in comparative research completed previously, complexity of method setup considers the availability of tools and software packages required to execute each method \citep{Gersonius2016, Kwakkel2016Compare}. Under this metric, the amount of work (through additional code and analysis beyond what is provided directly by any available tools), will be considered. The end result will be an inventory of the method-specific configuration which focuses on elements that are unique to each method.
+\suspend{enumerate}
+
+\section{Communication}\label{compare-communication}
+Both quantitative and qualitative, these metrics describe the strength of method and results communication. 
+
+\begin{enumerate}[resume,leftmargin=*,align=left,label=\textbf{Comparison \arabic* :}]
+    \item Results communication \newline
+          This metric refers to whether methods communicate results throughout execution or only upon completion of the entire analysis. This metric will examine differences in the recommended policy set if it is reported progressively. Also considered is the type of information that is communicated at different points during the analysis apart from the set of recommended policies. 
+          
+    \item Robustness communication \newline
+          This metric, specific to the robustness metric used in the execution of each method, indicates whether the robustness metric is an abstract or direct representation of policy measures. Similar measures have been used in the past to indicate the ability of a method to effectively recommend robust policy solutions \citep{Gersonius2016, Roach2015}.
+
+    \item Ease of results updating if the model specification changes \newline
+          Wicked problems with tipping point logic are characterized by deep uncertainty, so the models that describe these problems can never be exact. These models are subject to frequent changes based on new data or additional input from decision makers, whether it be to uncertainty ranges, model structure, or policy levers. Therefore, it is important to consider how decision support methods respond to these changes \citep{Gersonius2016}. This metric examines how each method is able to respond to changes in the model under analysis by describing the way in which a change to the model specification can be incorporated in each of the three steps following specification for each method. Then, that information is compared to discover the elements that are unique to a specific method, which reveals how easily a model specification change can be reflected in analysis.
+
+    \item Ease of results updating if desired robustness measure changes \newline
+          As discussed in \cref{review-robustness}, the selected robustness measure has a significant impact on the recommendations made by each decision support method. A change in robustness measure may occur due to changing interests of the decision maker, or a desire to consider multiple robustness perspectives for the same problem. This metric supports the previous by indicating the ability for each method to quickly and easily respond to a change in robustness measure. 
+\end{enumerate}
+
+\section{Results}\label{compare-results}
+The final set of metrics are quantitative in nature and focus on comparing the resulting recommended policy sets for each method and problem variation pairing. 
+
+\begin{enumerate}[resume,leftmargin=*,align=left,label=\textbf{Comparison \arabic* :}]
+    \item Computational cost \label{compare-computationcost} \newline
+          Computation cost will be measured in the number of model executions required for both the policy alternative determination and uncertainty analysis steps. This is also known as the number of function executions.
+
+    \item Convergence of search \newline
+          This metric examines the impact of each method on the convergence of the MOEA-based search to a stable set of non-dominated policy alternatives in the policy alternative determination step. Examining the impact of different MOEA searches on the ability to reach a stable result will provide guidance on the necessary number of function executions required for future analyses.
+
+    \item Robustness of recommended policy sets \label{compare-robustness} \newline
+          When methods use similar robustness measures to evaluate policy options, as is the case for the methods considered in this study (see \cref{step0-robust}), this metric examines the differences in robustness calculated for each set of recommended solutions by comparing the mean, minimum, and maximum robustness values for each outcome of interest per model variation and method pairing.
+    
+    \item Similarity of recommended policy sets \newline
+          Once final sets of policy alternatives are determined for each pairing, this metric compares the similarity of policy options in each set. This provides a mechanism for determining whether each pairing reaches similar insights independent of the robustness calculation for each policy in the final set \citep{Hall2012}. \Cref{compare-policysimilarity} describes the mechanism used to determine similarity for this and other comparison methods described. Given that measure, overall similarity of policy sets will be determined by comparing the mean of all measures for a pairing. The 10\textsuperscript{th} and 90\textsuperscript{th} percentile values will be compared, which should provide an idea of the level of similarity between two sets of policy alternatives. Because this metric involves comparing policy lever values, comparisons will be made within a specific variation of the problem under consideration.
+
+    \item Similarity of robustness \newline
+          For cases where methods use the same robustness measure but involve different procedures to calculate robustness for identified policy alternatives. This metric compares the robustness value of policies that are considered similar (based on the similarity mechanism defined in \cref{compare-policysimilarity} and the policy alternatives that fall in the 10\textsuperscript{th} percentile of similarity values). This communication, paired with the analysis of overall robustness of recommended policy sets (see \hyperref[compare-robustness]{\textit{Comparison 9}}), provides an guideline for how selection of a specific method may affect final robustness values. For example, this may indicate that one method leads to lower robustness values, despite similar policies being recommended. Given that the robustness values, like the policy values, are a vector of multiple distinct values, a mechanism must be defined to determine similarity. A description of this mechanism can be found in \cref{compare-policysimilarity}. 
+\end{enumerate}
+
+\section{Determining Similarity} \label{compare-policysimilarity}
+Each recommended policy is represented as a vector of values. Therefore, similarity must be determined through a clearly defined distance measure. The selection of similarity measure will have a large impact on the comparisons made in this study, as it will be used in more than one of the comparison metrics defined in \crefrange{compare-setup}{compare-results}. 
+
+In the case of the problems under consideration, policy and robustness data are both quantitative and dimensionless vectors. Based on two studies that compare several similarity and dissimilarity metrics, both qualitatively and quantitatively, the similarity measure identified as the most appropriate for this research is Euclidean distance \cite{Buttigieg2014, Shirkhorshidi2015}. Euclidean distance is one of the most well-known methods for determining the distance of numerical data sets \citep{Shirkhorshidi2015} and is most appropriate when considering quantitative value sets of homogeneous data \citep{Buttigieg2014}, which is what is found in both the policy and robustness vectors. 
+
+Euclidean distance has a few recognized disadvantages, each of which is addressed and mitigated in this study. First, that it may indicate two vectors of distinct values are closer together than another pair of vectors that share one or more common values \citep{Shirkhorshidi2015}. Similarity comparisons in this research involve continuous data. Because of this, vectors sharing common values are not necessarily more similar if other values have larger differences. For example, the vectors <0.05, 0.20, 0.34> and <0.05, 0.015, 0.34>, with two common values, should not be considered as more similar than vectors <0.05, 0.20, 0.34> and <0.04, 0.21, 0.33>, with no common values. Therefore, this first disadvantage will not negatively affect the similarity calculations in this research. 
+
+Related to the how difference in values of a vector element should be perceived when determining the similarity of two policies is the potential impact that a small change in value of a decision lever may have on the developed model. Due to the fact that the lake problem includes non-linear behavior characteristics, even a small change in a decision lever can lead to a significant impact to the system. A Euclidean distance calculation may indicate that two policies are quite similar, but those same two policies may yield significantly different results due to the presence of that non-linear behavior. A calculation of the similarity of policy vectors, therefore, indicates only that the policies themselves are similar and does not indicate anything about the similarity of the outcomes of the system when these policies are applied. 
+
+Second, Euclidean distance can be dominated by the element with the largest potential value. Therefore, values should be normalized when vectors include members of different scales \citep{Shirkhorshidi2015}. Based on the defined mechanism for determining robustness (see \cref{step0-robust}), the robustness vector contains values of the same scale and do not need to be normalized. However, the policy vector is defined with variables that have varying ranges of possible values. Therefore, policy similarity will be determined using normalized policy vectors. 
+
+Finally, Euclidean distance is strongly impacted by the size of the vectors being considered. Vectors that have many elements will often have larger distance values than vectors with a smaller number of values. As \cref{eq:euclid} shows, Euclidean distance is based on a summation of matching terms of the two vectors, represented by X and Y. 
+
+\begin{equation} \label{eq:euclid}
+distance(X, Y) = \sqrt{ \sum_{i=1}^{n}(x_i - y_i)^n}
+\end{equation}
+
+It is vital to be aware this property of a Euclidean distance calculation when comparing distance values to one another. A distance value of a pair of vectors with 4 elements can be smaller than a value calculated from a pair of vectors with 100 elements, for example, simply due to the significantly larger number of terms involved in the latter case. This study addresses this issue by ensuring that distance values are compared to each other only when calculated for vectors of the same length. For example, a distance calculation over vectors of decision levers for the intertemporal and DPS problem variations will never be directly compared to each other, because the DPS variation has only 5 elements, while the intertemporal variation has 100 elements.  
+
+To contrast, an alternative and also commonly used distance measure is the Mahalanobis distance. Unlike Euclidean distance, which treats each element of a vector as independent and equally weighted, the Mahalanobis distance calculation uses the covariance matrix of the two vectors to account for an correlation that exists between two elements. The correlation matrix is represented by $S$ in \cref{eq:mahalanobis}, the equation for calculating Mahalanobis distance of two vectors, X and Y. Using the covariance matrix also means that there are no issues relating to the scale of different elements in a vector. However, as the three measures described previously reduce the impact of the recognized weaknesses of a Euclidean distance calculation, and because the Euclidean distance is much simpler to calculate, it will be used in this study instead of the Mahalanobis distance. 
+
+\begin{equation} \label{eq:mahalanobis}
+distance(X, Y) = \sqrt{ (X - Y)S^-1(X-Y)^T }
+\end{equation}
+
+Euclidean distance will be calculated practically with the Python-based SciPy library and using the method \texttt{scipy.spatial.distance.euclidean}. This method will accept two normalized policy vectors and will return the Euclidean distance. In \cref{eq:euclid}, the two normalized policy vectors are represented by X and Y. 
+
+Each policy and robustness vector will be compared with every other vector, which results in a two-dimensional matrix of Euclidean distance values. The following holds true for distances in this matrix: $distance(X,Y) == distance(Y,X)$, so the resulting matrix will be bisymmetric, where the upper triangle will be equal to the lower triangle, separated by a diagonal of zeros. Because of this, an upper triangular matrix will be constructed where the lower triangular values are set to zero, which will be further processed in the targeted comparison method. 

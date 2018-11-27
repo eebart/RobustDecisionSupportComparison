@@ -1,0 +1,157 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\select@language {american}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {1}{\ignorespaces Comparison of robust decision support framework structures\relax }}{iii}{figure.caption.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2}{\ignorespaces Mean robustness per outcome of interest across all pairings}}{v}{figure.caption.5}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Structure of the work involved this research project\relax }}{10}{figure.caption.9}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Robust Decision Making Process\relax }}{16}{figure.caption.10}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.2}{\ignorespaces The XLRM Framework \citep {Kwakkel2017}\relax }}{16}{figure.caption.11}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Multi Objective Robust Decision Making Process\relax }}{18}{figure.caption.12}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Multi-Scenario MORDM Process\relax }}{20}{figure.caption.13}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Multi-Objective Robust Optimization Process\relax }}{22}{figure.caption.14}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Comparison of robust decision support method structures\relax }}{23}{figure.caption.15}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Illustration of pollution flows in lake model\relax }}{24}{figure.caption.16}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Tipping point behavior integrated into the shallow lake problem.}}{25}{figure.caption.17}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Basic RDM analysis structure\relax }}{29}{figure.caption.18}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.1}{\ignorespaces RDM Structure - Step 1\relax }}{32}{figure.caption.20}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {6.1}{\ignorespaces RDM Structure - Step 2\relax }}{36}{figure.caption.25}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Uncertainty values used to select reference scenarios for multi-scenario MORDM}}{43}{figure.caption.28}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {7.1}{\ignorespaces RDM Structure - Step 3\relax }}{46}{figure.caption.32}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {8.1}{\ignorespaces RDM Structure - Step 4\relax }}{48}{figure.caption.33}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {10.1}{\ignorespaces Convergences for the intertemporal and planned adaptive DPS variations}}{59}{figure.caption.34}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {10.2}{\ignorespaces Convergences for the DPS variation}}{60}{figure.caption.35}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {10.3}{\ignorespaces Outcome value ranges across all pairings}}{62}{figure.caption.37}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {10.4}{\ignorespaces Robustness value ranges across all pairings.}}{63}{figure.caption.38}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {10.5}{\ignorespaces Robust outcome values for the intertemporal lake problem, isolating high and low inertia values.\relax }}{64}{figure.caption.39}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {10.6}{\ignorespaces Results of PRIM Analysis}}{65}{figure.caption.40}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {11.1}{\ignorespaces Trend in computational cost when selecting maximally diverse policies}}{68}{figure.caption.41}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {11.2}{\ignorespaces Mean epsilon progress across all pairings and search repetitions}}{73}{figure.caption.44}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {11.3}{\ignorespaces Heatmap of mean robustness across all pairings.}}{74}{figure.caption.45}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {11.4}{\ignorespaces Release rules for DPS and planned adaptive DPS variatons}}{75}{figure.caption.46}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {11.5}{\ignorespaces Trends in pollution release over time for all pairings}}{76}{figure.caption.47}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {11.6}{\ignorespaces Mean robustness for planned adaptive variation given random reference scenario selection}}{77}{figure.caption.48}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {11.7}{\ignorespaces Robustness of each outcome of interest per policy in a non-dominated set of alternatives.\relax }}{77}{figure.caption.49}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {11.8}{\ignorespaces Uncertainty value ranges used to select reference scenarios for multi-scenario MORDM}}{78}{figure.caption.50}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {11.9}{\ignorespaces Similarity of lever values, determined between policies of the same method.\relax }}{79}{figure.caption.51}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {11.10}{\ignorespaces Ranges of values for each lever in the non-dominated policy set for the DPS model variation.\relax }}{79}{figure.caption.52}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {12.1}{\ignorespaces Comparison of robust decision support framework structures\relax }}{84}{figure.caption.53}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {12.2}{\ignorespaces Mean robustness per outcome of interest across all pairings}}{88}{figure.caption.55}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Comparing convergence with different epsilon value settings}}{110}{figure.caption.59}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {B.2}{\ignorespaces Comparing decision lever values with different epsilon value settings}}{111}{figure.caption.61}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {B.3}{\ignorespaces Comparing similarity of alternatives with different epsilon value settings}}{111}{figure.caption.62}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {C.1}{\ignorespaces Operator convergence for the intertemporal model variation}}{114}{figure.caption.63}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {C.2}{\ignorespaces Operator convergence for the planned adaptive DPS model variation}}{115}{figure.caption.64}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {C.3}{\ignorespaces Operator convergence for the DPS model variation}}{116}{figure.caption.65}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {D.1}{\ignorespaces Random seed analysis for all uses of MORDM}}{117}{figure.caption.66}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {D.2}{\ignorespaces Pareto front size across search repetitions for multi-scenario MORDM}}{118}{figure.caption.67}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {D.3}{\ignorespaces Hypervolume of the pareto front for all multi-scenario MORDM analyses.\relax }}{118}{figure.caption.68}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {D.4}{\ignorespaces The relationship between hypervolume and pareto front size across all multi-scenario MORDM analyses.\relax }}{119}{figure.caption.69}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {D.5}{\ignorespaces Random seed analysis for all uses of MORO}}{119}{figure.caption.70}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {E.1}{\ignorespaces Intertemporal + MORDM pair plot}}{121}{figure.caption.71}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {E.2}{\ignorespaces Intertemporal + multi-scenario MORDM pair plot}}{122}{figure.caption.72}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {E.3}{\ignorespaces Intertemporal + MORO pair plot}}{123}{figure.caption.73}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {E.4}{\ignorespaces Planned adaptive DPS + MORDM pair plot}}{124}{figure.caption.74}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {E.5}{\ignorespaces Planned adaptive DPS + multi-scenario MORDM pair plot}}{125}{figure.caption.75}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {E.6}{\ignorespaces Planned adaptive DPS + MORO pair plot}}{126}{figure.caption.76}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {E.7}{\ignorespaces DPS + MORDM pair plot}}{127}{figure.caption.77}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {E.8}{\ignorespaces DPS + multi-scenario MORDM pair plot}}{128}{figure.caption.78}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {E.9}{\ignorespaces DPS + MORO pair plot}}{129}{figure.caption.79}
+\contentsfinish 
+\contentsfinish 

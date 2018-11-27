@@ -1,0 +1,120 @@
+\newcommand\textcaps[1]{\textsc{\MakeUppercase{#1}}}
+
+\begin{titlepage}
+
+%%\begin{center}
+%
+%\makeatletter
+%{\largetitlestyle\fontsize{18}{18}\selectfont\MakeUppercase{\@firstname{} \@lastname}}
+%\makeatother
+%
+%%% Extra whitespace at the top.
+%%\vspace*{2\bigskipamount}
+%\vspace*{\fill}
+%
+%%% Print the title.
+%{\makeatletter
+%    \largetitlestyle\Huge\selectfont\MakeUppercase{\@title}
+%%    \largetitlestyle\color{tudelft-cyan}\Huge\@title
+%    \makeatother}
+%
+%%% Print the optional subtitle.
+%{\makeatletter
+%\ifx\@subtitle\undefined\else
+%    \bigskip
+%    \largetitlefont\titleshape\fontsize{18}{18}\MakeUppercase{\textbf{\@subtitle}}
+%\fi
+%\makeatother}
+%
+%%\end{center}
+%
+%\vfill
+%
+%\makeatletter
+%{\largetitlestyle\fontsize{12}{12}\selectfont \MakeUppercase{Delft University of Technology}}
+%\makeatother
+
+\cleardoublepage
+\if@twoside\else
+    \thispagestyle{empty}%
+    \vspace*{\fill}%
+    \newpage%
+\fi
+\thispagestyle{empty}
+
+\begin{center}
+
+%% The following lines repeat the previous page exactly.
+
+\vspace*{2\bigskipamount}
+
+%% Print the title.
+{\makeatletter
+    \largetitlestyle\fontsize{24}{24}\selectfont\MakeUppercase{\@title}
+%    \largetitlestyle\color{tudelft-cyan}\Huge\@title
+    \makeatother}
+
+%% Print the optional subtitle.
+{\makeatletter
+\ifx\@subtitle\undefined\else
+    \bigskip
+    \largetitlefont\titleshape\fontsize{18}{18}\MakeUppercase{\textbf{\@subtitle}}
+\fi
+\makeatother}
+
+\bigskip
+\bigskip
+{\Large Master thesis submitted to Delft University of Technology
+
+in partial fulfillment of the requirements for the degree of
+
+\bigskip
+
+\textbf{\LARGE Master of Science}
+
+\bigskip
+
+in Engineering and Policy Analysis 
+
+Faculty of Technology, Policy and Management}
+
+{\large by}
+%door
+
+\bigskip
+\bigskip
+
+%% Print the full name of the author.
+\makeatletter
+{\LARGE \@firstname{} \@lastname}
+\makeatother
+
+\bigskip
+\bigskip
+
+{\Large To be defended in public on August 28 2018}
+
+\vfill
+
+\end{center}
+
+%\clearpage
+\thispagestyle{empty}
+
+%% List the committee members
+\medskip\noindent
+\begin{tabularx}{\linewidth}{lll}
+    Student number:     &   4627237                                                 & \\
+    Project duration:   &   9 February 2018 -- 29 August 2018                       & \\
+    Thesis committee:   &   Prof.\ dr.\ A.\ Verbraeck,                              & TU Delft, Chair \\
+                        &   Dr.\ J.\ Kwakkel,                                       & TU Delft, first supervisor \\
+                        &   Dr.\ M.\ Warnier,                                       & TU Delft, second supervisor \\
+\end{tabularx}
+
+\vspace{4\bigskipamount}
+
+\medskip
+\noindent An electronic version of this thesis is available at \url{http://repository.tudelft.nl/}.
+
+\end{titlepage}
+

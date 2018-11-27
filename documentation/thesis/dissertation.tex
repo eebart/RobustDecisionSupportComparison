@@ -1,0 +1,123 @@
+\documentclass[table]{dissertation}
+\geometry{twoside=false}
+
+\usepackage{syntonly}
+%\syntaxonly
+
+%\usepackage[none]{hyphenat}
+%\sloppy
+
+\usepackage{enumitem}
+\renewcommand\labelitemi{---}
+
+\usepackage{moreenum}
+
+% Table configuration
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{1.5} 
+\renewcommand\tabularxcolumn[1]{m{#1}}
+%\setlength\arrayrulewidth{1pt}\arrayrulecolor{white}
+%\rowcolors{2}{tudelft-dark-blue!20}{tudelft-dark-blue!10!anthracite!20}
+
+% bibliography configuration
+\usepackage{csquotes}
+\usepackage[style=apa, natbib, backend=biber, bibencoding=utf8]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+\usepackage[strings]{underscore}
+
+\DeclareFieldFormat{doi}{%
+%    \mkbibacro{DOI}\addcolon\space
+    \mkbibacro{}
+    \ifhyperref
+    {\href{https://doi.org/#1}{\nolinkurl{https://doi.org/#1}}}
+    {\nolinkurl{https://doi.org/#1}}}
+
+%\usepackage[style=apa, natbib, backend=biber, bibencoding=utf8]{biblatex}
+%\DeclareLanguageMapping{american}{american-apa}
+\addbibresource{references/References.bib}
+
+\usepackage[all]{nowidow}
+
+\usepackage[capitalize, nameinlink]{cleveref}
+
+\graphicspath{ {./images/} }
+
+\begin{document}
+
+%% Specify the title and author of the thesis. This information will be used on
+%% the title page (in title/title.tex) and in the metadata of the final PDF.
+\title[A Comparative Analysis]{Robust Decision Support Methods}
+\author{Erin}{Bartholomew}
+
+%% Use Roman numerals for the page numbers of the title pages and table of
+%% contents.
+\frontmatter
+
+\include{frontmatter/title}
+\include{summary/preface}
+%\include{summary/acknowledgements}
+\include{summary/summary}
+
+\tableofcontents
+
+\listoffigures
+\listoftables
+
+%% Use Arabic numerals for the page numbers of the chapters.
+\mainmatter
+
+\newpage
+
+%% Turn on thumb indices.
+\thumbtrue
+
+\setlength{\tabcolsep}{5pt}
+
+\part{Introduction} \label{part-introduce}
+\include{part-1/introduction}
+\include{part-1/research}
+\include{part-1/litreview}
+
+\part{Methods} \label{part-develop}
+\include{part-2/step-0}
+\include{part-2/step-1}
+\include{part-2/step-2}
+\include{part-2/step-3}
+\include{part-2/step-4}
+\include{part-2/comparison}
+
+\part{Results} \label{part-analysis}
+\include{part-3/results}
+\include{part-3/methodcomparison}
+
+\part{Discussion} \label{part-discussion}
+\include{part-4/conclusion}
+\include{part-4/reflection}
+\include{part-4/futurework}
+
+% References
+\clearpage
+\pagestyle{plain}
+\addcontentsline{toc}{chapter}{References}
+\printbibliography[title=References]
+
+% Use letters for the chapter numbers of the appendices.
+\appendix 
+
+\titleformat{\chapter}
+    {\Large\headerstyle}
+    {\chaptitlestyle\huge\color{title} Appendix \thechapter : }
+    {0pt}
+    {\chaptitlestyle\huge\color{title}}
+
+\part{Appendices} \label{part-appendix}
+\include{appendix/code}
+\include{appendix/epsilon} %DONE for now
+\include{appendix/operatorconvergence} %DONE
+\include{appendix/seedanalysis} 
+\include{appendix/uncertainty} %DONE
+
+%% Turn off thumb indices for unnumbered chapters.
+\thumbfalse
+
+\end{document}
