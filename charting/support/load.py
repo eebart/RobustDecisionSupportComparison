@@ -13,9 +13,12 @@ from support.util import modelOrder
 
 rootFolder  = '../data'
 methodParams = {
-    'mordm': MordmParams(rootFolder, optimize=False,                           reevaluate=False, reevaluate_scenarios=False, robust=False),
-    'multi': MultiParams(rootFolder, optimize=False,                           reevaluate=False, reevaluate_scenarios=False, robust=False),
-    'moro':  MoroParams( rootFolder, optimize=False, optimize_scenarios=False, reevaluate=False, reevaluate_scenarios=False, robust=False)
+    'mordm': MordmParams(rootFolder, optimize=False,
+                         reevaluate=False, reevaluate_scenarios=False, robust=False),
+    'multi': MultiParams(rootFolder, optimize=False,
+                         reevaluate=False, reevaluate_scenarios=False, robust=False),
+    'moro':  MoroParams( rootFolder, optimize=False, optimize_scenarios=False,
+                         reevaluate=False, reevaluate_scenarios=False, robust=False)
 }
 
 def load(modelsToLoad, params, reevaluate=True, robustVals=True, scoreVals=True):
@@ -32,7 +35,8 @@ def load(modelsToLoad, params, reevaluate=True, robustVals=True, scoreVals=True)
 
         print('--------------------------------')
         print('Loading MOEA ' + model)
-        archive, convergence = methodFunctions[params.name]['moea'](models[model], params=params)
+        archive, convergence = methodFunctions[params.name]['moea'](models[model],
+                                                                    params=params)
         if not isinstance(archive, list):
             archive = [archive]
         if not isinstance(convergence, list):
@@ -41,14 +45,19 @@ def load(modelsToLoad, params, reevaluate=True, robustVals=True, scoreVals=True)
         convergences[model] = convergence
 
         print('Loading Pareto for ' + model)
-        nond = methodFunctions[params.name]['pareto'](models[model], results=(archives[model], convergences[model]), params=params)
+        nond = methodFunctions[params.name]['pareto'](models[model],
+                                                      results=(archives[model],
+                                                               convergences[model]),
+                                                      params=params)
         if not isinstance(nond, list):
             nond = [nond]
         nondominated[model] = nond
 
         if reevaluate:
             print('Loading Reevaluations ' + model)
-            results[model] = methodFunctions[params.name]['reevaluate'](models[model], params=params, nondominated=None)
+            results[model] = methodFunctions[params.name]['reevaluate'](models[model],
+                                                                        params=params,
+                                                                        nondominated=None)
 
         if robustVals == True:
             print('Loading Robustness ' + model)
@@ -81,18 +90,25 @@ def loadAllData(reevaluate=False, robustVals='summary', scoreVals=False):
         'plannedadaptive':True,
         'intertemporal':True
     }
-    data = {
-        'mordm': loadData[methodParams['mordm'].name](modelsToLoad, reevaluate=reevaluate, robustVals=robustVals, scoreVals=scoreVals),
-        'multi': loadData[methodParams['multi'].name](modelsToLoad, reevaluate=reevaluate, robustVals=robustVals, scoreVals=scoreVals),
-        'moro':  loadData[methodParams['moro'].name](modelsToLoad, reevaluate=reevaluate, robustVals=robustVals, scoreVals=scoreVals)
-    }
+    data = {}
+    for method in ['mordm', 'multi', 'moro']:
+        print(f'\n loading data for {method}\n')
+        data[method] = loadData[methodParams[method].name](modelsToLoad, reevaluate=reevaluate,
+                                                    robustVals=robustVals, scoreVals=scoreVals)
+    
     return data
+
 def loadMordmData(modelsToLoad, reevaluate=True, robustVals=True, scoreVals=True):
-    return load(modelsToLoad, methodParams['mordm'], reevaluate=reevaluate, robustVals=robustVals, scoreVals=scoreVals)
+    return load(modelsToLoad, methodParams['mordm'], reevaluate=reevaluate,
+                robustVals=robustVals, scoreVals=scoreVals)
+
 def loadMultiData(modelsToLoad, reevaluate=True, robustVals=True, scoreVals=True):
-    return load(modelsToLoad, methodParams['multi'], reevaluate=reevaluate, robustVals=robustVals, scoreVals=scoreVals)
+    return load(modelsToLoad, methodParams['multi'], reevaluate=reevaluate,
+                robustVals=robustVals, scoreVals=scoreVals)
+
 def loadMoroData(modelsToLoad, reevaluate=True, robustVals= True, scoreVals=True):
-    return load(modelsToLoad, methodParams['moro'], reevaluate=reevaluate, robustVals=robustVals, scoreVals=scoreVals)
+    return load(modelsToLoad, methodParams['moro'], reevaluate=reevaluate,
+                robustVals=robustVals, scoreVals=scoreVals)
 
 loadData = {
     'mordm':loadMordmData,
