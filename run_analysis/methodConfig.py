@@ -55,7 +55,7 @@ class BaseParams(object):
 class MordmParams(BaseParams):
     def __init__(self, rootFolder, optimize=True,
                  reevaluate=True, reevaluate_scenarios=True, robust=True):
-        BaseParams.__init__(self, 'mordm', rootFolder, optimize,
+        super().__init__('mordm', rootFolder, optimize,
                             reevaluate, reevaluate_scenarios, robust)
 
         # Optimization
@@ -65,11 +65,11 @@ class MordmParams(BaseParams):
 class MultiParams(BaseParams):
     def __init__(self, rootFolder, optimize=True,
                  reevaluate=True, reevaluate_scenarios=True, robust=True):
-        BaseParams.__init__(self, 'multi', rootFolder, optimize,
+        super().__init__('multi', rootFolder, optimize,
                             reevaluate, reevaluate_scenarios, robust)
 
         # Optimization
-        self.numberOptimizationRepetitions = 50
+        self.numberOptimizationRepetitions = 20
 
         self.references = {
             'dps': [{'b': 0.268340928, 'q': 3.502868198, 'mean': 0.042989126,
@@ -110,7 +110,7 @@ class MultiParams(BaseParams):
 class MoroParams(BaseParams):
     def __init__(self, rootFolder, optimize=True, optimize_scenarios=True,
                  reevaluate=True, reevaluate_scenarios=True, robust=True):
-        BaseParams.__init__(self, 'moro', rootFolder, optimize,
+        super().__init__('moro', rootFolder, optimize,
                             reevaluate, reevaluate_scenarios, robust)
 
         # Optimization
@@ -123,6 +123,7 @@ class MoroParams(BaseParams):
 
 
 def outputFileEnd(model, params, refScenario=-1):
+    
     return model.name + '_' + params.algoName + \
            '_runs' + str(params.numberOptimizationRepetitions) + \
            '_nfe' + str(params.nfeOptimize[model.name]) + \
@@ -189,6 +190,7 @@ def pareto_moro(model, params, results=None):
 
 
 def reevaluate_one(model, params, nondominated=None):
+    print(params)
     return runReevaluate(model=model, params=params, nondominated=nondominated,
                          fileEnd=outputFileEnd(model, params))
 
